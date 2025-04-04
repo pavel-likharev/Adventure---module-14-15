@@ -1,11 +1,8 @@
-using UnityEditor;
 using UnityEngine;
 
 public abstract class Item : MonoBehaviour
 {
-    [SerializeField] private float _equipEffectSpeed = 1;
-
-    [SerializeField] private BodyParts bodyPart;
+    [SerializeField] private Vector3 _equipOffset;
 
     private float _rotateSpeed = 15;
 
@@ -22,7 +19,7 @@ public abstract class Item : MonoBehaviour
 
     private void Start()
     {
-        _rotateCurrentSide = Random.Range(0, 2) == 0 ?  _rotateLeftSide : _rotateRightSide; 
+        _rotateCurrentSide = Random.Range(0, 2) == 0 ? _rotateLeftSide : _rotateRightSide;
     }
 
     private void Update()
@@ -36,14 +33,12 @@ public abstract class Item : MonoBehaviour
             transform.Rotate(transform.up, _rotateSpeed * _rotateCurrentSide * Time.deltaTime);
     }
 
-    public void OnEquip(EquipBodyPart equipBodyPart)
+    public void Equip(Transform equipPoint)
     {
-        
-
-        transform.SetParent(equipBodyPart.transform);
+        transform.SetParent(equipPoint);
+        transform.localPosition = _equipOffset;
+        transform.localRotation = Quaternion.identity;
 
         _isEquip = true;
     }
-
-    public BodyParts GetBodyPart() => bodyPart;
 }

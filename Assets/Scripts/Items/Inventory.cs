@@ -4,30 +4,23 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    [SerializeField] private List<EquipBodyPart> _equipBodyParts;
+    [SerializeField] private Transform _equipPoint;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.TryGetComponent<Item>(out Item item))
-        {
-            TryEquipItem(item);
+    [SerializeField] private Item itemSlot;
 
+    public bool IsEmpty { 
+        get 
+        { 
+            return itemSlot == null; 
+        }
+        private set 
+        { 
         }
     }
 
-    private void TryEquipItem(Item item)
+    public void SetItemInSlot(Item item)
     {
-        BodyParts bodyPartOfItem = item.GetBodyPart();
-
-        foreach (EquipBodyPart bodyPart in _equipBodyParts)
-        {
-            if (bodyPart.GetBodyPart() == bodyPartOfItem)
-            {
-                if (bodyPart.IsEmpty)
-                    item.OnEquip(bodyPart);
-
-                return;
-            }
-        }
+        item.Equip(_equipPoint);
+        itemSlot = item;
     }
 }

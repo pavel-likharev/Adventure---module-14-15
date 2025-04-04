@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    [SerializeField] private List<EquipBodyPart> _equipBodyParts;
-
     private Inventory _inventory;
     private HealthCharacter _healthCharacter;
     private AnimationCharacter _animationCharacter;
