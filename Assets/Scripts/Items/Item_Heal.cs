@@ -12,6 +12,7 @@ public class Item_Heal : Item
         {
             health.AddHealth(_value);
 
+            StartEffect();
             Debug.Log("Ёффект увеличени€ здоровь€ активирован");
         }
     }

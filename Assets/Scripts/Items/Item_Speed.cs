@@ -15,6 +15,7 @@ public class Item_Speed : Item
         {
             moveController.BoostSpeed(_speedBoost);
 
+            StartEffect();
             Debug.Log("Ёффект увеличени€ скорости активирован");
         }
     }

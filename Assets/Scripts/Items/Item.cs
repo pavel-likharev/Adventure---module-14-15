@@ -5,6 +5,8 @@ public abstract class Item : MonoBehaviour
     [SerializeField] private Vector3 _equipPositionOffset;
     [SerializeField] private Vector3 _equipRotationOffset;
 
+    [SerializeField] protected ParticleSystem _particleEffect;
+
     private float _rotateSpeed = 15;
 
     private int _rotateRightSide = -1;
@@ -41,6 +43,12 @@ public abstract class Item : MonoBehaviour
         transform.localRotation = Quaternion.Euler(_equipRotationOffset);
 
         _isEquip = true;
+    }
+
+    protected void StartEffect()
+    {
+        _particleEffect.transform.parent = null;
+        _particleEffect.Play();
     }
 
     public abstract bool CanEquip(GameObject owner);

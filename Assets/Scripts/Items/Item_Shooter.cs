@@ -12,6 +12,7 @@ public class Item_Shooter : Item
         Projectile newProjectile = Instantiate(_projectilePrefab, _spawnPoint.position, _spawnPoint.rotation);
         newProjectile.Shoot(_spawnPoint);
 
+        StartEffect();
         Debug.Log("Выстрел активирован");
     }
 }
