@@ -1,13 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Character : MonoBehaviour
+public abstract class Character : MonoBehaviour
 {
-    private Inventory _inventory;
-    private HealthCharacter _healthCharacter;
-    private AnimationCharacter _animationCharacter;
-    private MoveController _moveController;
+    protected Inventory _inventory;
+    protected HealthCharacter _healthCharacter;
+    protected AnimationCharacter _animationCharacter;
+    protected MoveController _moveController;
 
     protected virtual void Awake()
     {

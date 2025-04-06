@@ -21,7 +21,6 @@ public class AnimationCharacter : MonoBehaviour
     private void Update()
     {
         _animator.SetBool(RunningKey, IsMoving);
-        _animator.SetBool(AttackingKey, IsAttacking);
     }
 
     public void StartDeathClip() => _animator.SetTrigger(DeadKey);

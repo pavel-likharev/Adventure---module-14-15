@@ -2,7 +2,8 @@ using UnityEngine;
 
 public abstract class Item : MonoBehaviour
 {
-    [SerializeField] private Vector3 _equipOffset;
+    [SerializeField] private Vector3 _equipPositionOffset;
+    [SerializeField] private Vector3 _equipRotationOffset;
 
     private float _rotateSpeed = 15;
 
@@ -36,9 +37,13 @@ public abstract class Item : MonoBehaviour
     public void Equip(Transform equipPoint)
     {
         transform.SetParent(equipPoint);
-        transform.localPosition = _equipOffset;
-        transform.localRotation = Quaternion.identity;
+        transform.localPosition = _equipPositionOffset;
+        transform.localRotation = Quaternion.Euler(_equipRotationOffset);
 
         _isEquip = true;
     }
+
+    public abstract bool CanEquip(GameObject owner);
+
+    public abstract void UseEffect(GameObject target);
 }

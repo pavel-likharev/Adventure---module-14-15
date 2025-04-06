@@ -14,6 +14,17 @@ public abstract class MoveController : MonoBehaviour
         _startPosition = transform.position;
     }
 
+    public void BoostSpeed(float value)
+    {
+        if (value < 0)
+        {
+            Debug.LogError("«начение увеличени€ скорости не может быть меньше 0");
+            return;
+        }
+
+        _moveSpeed += value;
+    }
+
     protected void MoveTo(Vector3 input, CharacterController characterController)
     {
         characterController.Move(input.normalized * _moveSpeed * Time.deltaTime);

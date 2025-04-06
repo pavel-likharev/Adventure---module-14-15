@@ -131,8 +131,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a3a8e53d5354fe4488aed3e310e5b57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _equipOffset: {x: 0, y: -0.8, z: 0}
-  value: 0
+  _equipPositionOffset: {x: 0, y: -0.8, z: 0}
+  _equipRotationOffset: {x: 0, y: 0, z: 0}
+  _value: 10
 --- !u!65 &1849456458873913370
 BoxCollider:
   m_ObjectHideFlags: 0
